@@ -11,7 +11,7 @@ const AvailableAppointments = ({ selectedDate, setSelectedDate }) => {
     fetch("appointmentOptions.json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setAppointmentOptions(data);
       });
   }, [selectedDate]);
@@ -30,7 +30,11 @@ const AvailableAppointments = ({ selectedDate, setSelectedDate }) => {
         ))}
       </div>
       {treatment && (
-        <BookingModal treatment={treatment} selectedDate={selectedDate} />
+        <BookingModal
+          treatment={treatment}
+          setTreatment={setTreatment}
+          selectedDate={selectedDate}
+        />
       )}
     </section>
   );
